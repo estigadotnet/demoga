@@ -311,9 +311,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="form-group row">
 							  <input type="text" name="jumlahTipe" value="<?php echo $jumlahTipe; ?>" class="form-control form-control-user" id="jumlahTipeTanker" placeholder="Jumlah Tipe Tanker">
 							</div>
+							<hr>
 							<button class="btn btn-primary" type="submit">Proses</button>
 						  </form>
-						  <hr>
 						</div>
 					  </div>
 					</div>
@@ -444,10 +444,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							  <input type="text" class="form-control form-control-user" id="fxijcapi" placeholder="f(X ij, Cap i)">
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="biayajk" placeholder="Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)">
+							  <!-- <input type="text" class="form-control form-control-user" id="biayajk" placeholder="Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)"> -->
+							  <p>C<sub>jk</sub> = Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)</p>
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="fxjkcapi" placeholder="f(X jk, Cap i)">
+							  <!-- <input type="text" class="form-control form-control-user" id="fxjkcapi" placeholder="f(X jk, Cap i)"> -->
+							  <p>C<sub>jk</sub> = f(X<sub>jk</sub>, Cap<sub>l</sub>)</p>
 							</div>
 						  </form>
 						  <hr>
