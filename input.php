@@ -438,10 +438,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							  <input type="text" class="form-control form-control-user" id="kapasitas" placeholder="Kapasitas muat kapal tanker jenis l (ton)">
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="biayaij" placeholder="Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)">
+							  <!-- <input type="text" class="form-control form-control-user" id="biayaij" placeholder="Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)"> -->
+							  <p>C<sub>ij</sub> = Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)</p>
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="fxijcapi" placeholder="f(X ij, Cap i)">
+							  <!-- <input type="text" class="form-control form-control-user" id="fxijcapi" placeholder="f(X ij, Cap i)"> -->
+							  <p>C<sub>ij</sub> = f(X<sub>ij</sub>, Cap<sub>l</sub>)</p>
 							</div>
 							<div class="form-group row">
 							  <!-- <input type="text" class="form-control form-control-user" id="biayajk" placeholder="Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)"> -->
