@@ -423,13 +423,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="p-5">
 						  <form class="user">
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="ij" placeholder="Angkutan minyak per tahun dari pengimpor i menuju storage j (ton)">
+							  <!-- <input type="text" class="form-control form-control-user" id="ij" placeholder="Angkutan minyak per tahun dari pengimpor i menuju storage j (ton)"> -->
+							  <p><i>X<sub>ij</sub> = Angkutan minyak per tahun dari pengimpor i menuju storage j (ton)</i></p>
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="jk" placeholder="Angkutan minyak per tahun dari storage j menuju depo k (ton)">
+							  <!-- <input type="text" class="form-control form-control-user" id="ij" placeholder="Angkutan minyak per tahun dari pengimpor i menuju storage j (ton)"> -->
+							  <p><i>X<sub>ij</sub> = </i></p>
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="vendor" placeholder="Biaya total tahunan Vendor (Jt. IDR)">
+							  <!-- <input type="text" class="form-control form-control-user" id="jk" placeholder="Angkutan minyak per tahun dari storage j menuju depo k (ton)"> -->
+							  <p><i>X<sub>jk</sub> = Angkutan minyak per tahun dari storage j menuju depo k (ton)</i></p>
+							</div>
+							<div class="form-group row">
+							  <!-- <input type="text" class="form-control form-control-user" id="jk" placeholder="Angkutan minyak per tahun dari storage j menuju depo k (ton)"> -->
+							  <p><i>X<sub>jk</sub> = </i></p>
+							</div>
+							<div class="form-group row">
+							  <!-- <input type="text" class="form-control form-control-user" id="vendor" placeholder="Biaya total tahunan Vendor (Jt. IDR)"> -->
+							  <p><i>TC<sub>vendor</sub> = Biaya total tahunan Vendor (Jt. IDR)</i></p>
+							</div>
+							<div class="form-group row">
+							  <!-- <input type="text" class="form-control form-control-user" id="vendor" placeholder="Biaya total tahunan Vendor (Jt. IDR)"> -->
+							  <p><i>TC<sub>vendor</sub> = </i></p>
 							</div>
 							<div class="form-group row">
 							  <!-- <input type="text" class="form-control form-control-user" id="retailer" placeholder="Biaya total tahunan Retailer (Jt. IDR)"> -->
