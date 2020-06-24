@@ -432,26 +432,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							  <input type="text" class="form-control form-control-user" id="vendor" placeholder="Biaya total tahunan Vendor (Jt. IDR)">
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="retailer" placeholder="Biaya total tahunan Retailer (Jt. IDR)">
+							  <!-- <input type="text" class="form-control form-control-user" id="retailer" placeholder="Biaya total tahunan Retailer (Jt. IDR)"> -->
+							  <p><i>TC<sub>retailer</sub> = Biaya total tahunan Retailer (Jt. IDR)</i></p>
 							</div>
 							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="kapasitas" placeholder="Kapasitas muat kapal tanker jenis l (ton)">
+							  <!-- <input type="text" class="form-control form-control-user" id="retailer" placeholder="Biaya total tahunan Retailer (Jt. IDR)"> -->
+							  <p><i>TC<sub>retailer</sub> = </i></p>
+							</div>
+							<div class="form-group row">
+							  <!-- <input type="text" class="form-control form-control-user" id="kapasitas" placeholder="Kapasitas muat kapal tanker jenis l (ton)"> -->
+							  <p><i>Cap<sub>l</sub> = Kapasitas muat kapal tanker jenis l (ton)</i></p>
+							</div>
+							<div class="form-group row">
+							  <!-- <input type="text" class="form-control form-control-user" id="kapasitas" placeholder="Kapasitas muat kapal tanker jenis l (ton)"> -->
+							  <p><i>Cap<sub>l</sub> = </i></p>
 							</div>
 							<div class="form-group row">
 							  <!-- <input type="text" class="form-control form-control-user" id="biayaij" placeholder="Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)"> -->
-							  <p>C<sub>ij</sub> = Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)</p>
+							  <p><i>C<sub>ij</sub> = Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)</i></p>
 							</div>
 							<div class="form-group row">
 							  <!-- <input type="text" class="form-control form-control-user" id="fxijcapi" placeholder="f(X ij, Cap i)"> -->
-							  <p>C<sub>ij</sub> = f(X<sub>ij</sub>, Cap<sub>l</sub>)</p>
+							  <p><i>C<sub>ij</sub> = f(X<sub>ij</sub>, Cap<sub>l</sub>)</i></p>
 							</div>
 							<div class="form-group row">
 							  <!-- <input type="text" class="form-control form-control-user" id="biayajk" placeholder="Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)"> -->
-							  <p>C<sub>jk</sub> = Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)</p>
+							  <p><i>C<sub>jk</sub> = Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)</i></p>
 							</div>
 							<div class="form-group row">
 							  <!-- <input type="text" class="form-control form-control-user" id="fxjkcapi" placeholder="f(X jk, Cap i)"> -->
-							  <p>C<sub>jk</sub> = f(X<sub>jk</sub>, Cap<sub>l</sub>)</p>
+							  <p><i>C<sub>jk</sub> = f(X<sub>jk</sub>, Cap<sub>l</sub>)</i></p>
 							</div>
 						  </form>
 						  <hr>
