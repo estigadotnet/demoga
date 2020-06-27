@@ -439,122 +439,155 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					
 						<div class="row">
 							
-							<!-- pengimpor -->
+							<!-- baris = pengimpor -->
 							<?php
 							if ($jumlahPengimpor > 0) {
 							?>
 								<div class="col-sm-1">
 									<div class="p-2">
 										<div class="form-group row">
-										&nbsp;
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
 										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
 										?>
 										<div class="form-group row">
-											<p>i<sub><?php echo $i; ?></sub></p><!-- <input type="text" name="labelpengimpor[]" value="i<?php echo $i; ?>" class="form-control form-control-user" size="2" readonly> -->
+											<input type="text" name="labelpengimpor[]" value="i<?php echo $i; ?>" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
 										}
 										?>
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
 									</div>
 								</div>
+								<?php for ($d = 1; $d <= $jumlahDepo; $d++) {?>
 								<div class="col-sm-1">
 									<div class="p-2">
 										<div class="form-group row">
-										d
+											<input type="text" name="headpengimpor[]" value="d<?php echo $d; ?>" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
 										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
 										?>
 										<div class="form-group row">
-											<input type="text" name="pengimpor[]" value="<?php echo $pengimpor[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+											<input type="text" name="pengimpor[]" value="<?php echo $pengimpor[$i-1]." * ".$depo[$d-1]; ?>" class="form-control form-control-user" size="2">
 										</div>
 										<?php
 										}
 										?>
+										<div class="form-group row">
+											<input type="text" name="sigmapengimpor[]" value="" class="form-control form-control-user" size="2">
+										</div>
 									</div>
 								</div>
+								<?php }?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="labelpengimpor[]" value="" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								
 							<?php
 							}
 							?>
 							<!-- end of pengimpor -->
 							
-							<!-- storage -->
-							<?php
-							if ($jumlahStorage > 0) {
-							?>
-								<div class="col-sm-3">
-									<div class="p-2">
-										<div class="form-group row">
-										Storage
-										</div>
-										<?php
-										for ($i = 1; $i <= $jumlahStorage; $i++) {
-										?>
-										<div class="form-group row">
-											<input type="text" name="storage[]" value="<?php echo $storage[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
-										</div>
-										<?php
-										}
-										?>
-									</div>
-								</div>
-							<?php
-							}
-							?>
-							<!-- end of storage -->
+						</div>
+					</div>
+				</div>
+            </div>
+			
+			<div class="col-sm-12">
+				<div class="card mb-3">
+					<div class="card-body">
+					
+						<div class="row">
 							
-							<!-- depo -->
+							<!-- baris = depo -->
 							<?php
 							if ($jumlahDepo > 0) {
 							?>
-								<div class="col-sm-3">
+								<div class="col-sm-1">
 									<div class="p-2">
 										<div class="form-group row">
-										Depo
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
-										for ($i = 1; $i <= $jumlahDepo; $i++) {
+										for ($d = 1; $d <= $jumlahDepo; $d++) {
 										?>
 										<div class="form-group row">
-											<input type="text" name="depo[]" value="<?php echo $depo[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+											<input type="text" name="labelpengimpor[]" value="d<?php echo $d; ?>" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
 										}
 										?>
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
 									</div>
 								</div>
+								<?php for ($s = 1; $s <= $jumlahStorage; $s++) {?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="s<?php echo $s; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										for ($d = 1; $d <= $jumlahDepo; $d++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="pengimpor[]" value="<?php echo $depo[$d-1]." * ".$storage[$s-1]; ?>" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+										<div class="form-group row">
+											<input type="text" name="sigmapengimpor[]" value="" class="form-control form-control-user" size="2">
+										</div>
+									</div>
+								</div>
+								<?php }?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										for ($d = 1; $d <= $jumlahDepo; $d++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="labelpengimpor[]" value="" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+										<div class="form-group row">
+											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								
 							<?php
 							}
 							?>
-							<!-- end of depo -->
+							<!-- end of pengimpor -->
 							
-							<!-- tipe tanker -->
-							<?php
-							if ($jumlahTipe > 0) {
-							?>
-								<div class="col-sm-3">
-									<div class="p-2">
-										<div class="form-group row">
-										Tipe Tanker
-										</div>
-										<?php
-										for ($i = 1; $i <= $jumlahTipe; $i++) {
-										?>
-										<div class="form-group row">
-											<input type="text" name="tipe[]" value="<?php echo $tipe[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
-										</div>
-										<?php
-										}
-										?>
-									</div>
-								</div>
-							<?php
-							}
-							?>
-							<!-- end of tipe tanker -->
-						
 						</div>
 					</div>
 				</div>
