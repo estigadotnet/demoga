@@ -319,6 +319,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				</div>
 			</div>
 			
+			<?php if ($jumlahPengimpor > 0 or $jumlahStorage > 0 or $jumlahDepo > 0 or $jumlahTipe > 0) { ?>
 			<div class="col-lg-12">
 				<div class="card mb-12">
 					<div class="card-body">
@@ -423,17 +424,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							}
 							?>
 							<!-- end of tipe tanker -->
-							
-							
 						
 						</div>
+						
 						<div class="row">
+							<div class="col-sm-3">
+							<div class="p-2">
 							<button class="btn btn-primary" type="submit">Proses</button>
+							</div>
+							</div>
 						</div>
+						
 					</div>
 				</div>
 			  
             </div>
+			<?php }?>
 
           </div>
 
