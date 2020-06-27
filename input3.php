@@ -296,7 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-lg-4">
+							<div class="col-lg-2">
 								<div class="p-2">
 									<form method="POST" action="input4.php">
 									<div class="form-group row">Jumlah Pengimpor
@@ -331,7 +331,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php
 							if ($jumlahPengimpor > 0) {
 							?>
-								<div class="col-sm-1">
+								<div class="col-sm-2">
 									<div class="p-2">
 										<div class="form-group row">
 										Pengimpor
@@ -356,7 +356,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php
 							if ($jumlahStorage > 0) {
 							?>
-								<div class="col-sm-3">
+								<div class="col-sm-2">
 									<div class="p-2">
 										<div class="form-group row">
 										Storage
@@ -381,7 +381,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php
 							if ($jumlahDepo > 0) {
 							?>
-								<div class="col-sm-3">
+								<div class="col-sm-2">
 									<div class="p-2">
 										<div class="form-group row">
 										Depo
@@ -406,7 +406,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php
 							if ($jumlahTipe > 0) {
 							?>
-								<div class="col-sm-3">
+								<div class="col-sm-2">
 									<div class="p-2">
 										<div class="form-group row">
 										Tipe Tanker
@@ -579,6 +579,82 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								
 							<?php } ?>
 							<!-- end of tabel 2    -->
+							
+						</div>
+					</div>
+				</div>
+            </div>
+			
+			<div class="col-sm-12">
+				<div class="card mb-3">
+					<div class="card-body">
+					
+						<div class="row">
+							
+							<!-- tabel 3           -->
+							<!-- baris = tanker    -->
+							<!-- kolom = depo      -->
+							<?php if ($jumlahTipe > 0) { ?>
+
+								<!-- kolom t1, t2, tn -->
+								<!-- kolom pertama -->
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<input type="text" name="t3_A1" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php for ($t = 1; $t <= $jumlahTipe; $t++) { ?>
+										<div class="form-group row">
+											<input type="text" name="t3_A<?php echo $t+1; ?>" value="t<?php echo $t; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php } ?>
+										<div class="form-group row">
+											<input type="text" name="t3_A<?php echo $t+1; ?>" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								
+								<!-- kolom d1, d2, dn -->
+								<!-- kolom kedua, kolom_n-1 -->
+								<?php for ($d = 1; $d <= $jumlahDepo; $d++) { ?>
+								<?php $row = 1; ?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<input type="text" name="t3_<?php echo chr(65+$d).$row++; ?>" value="d<?php echo $d; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php for ($t = 1; $t <= $jumlahTipe; $t++) { ?>
+										<div class="form-group row">
+											<input type="text" name="t3_<?php echo chr(65+$d).$row++; ?>" value="" class="form-control form-control-user" size="2">
+										</div>
+										<?php } ?>
+										<div class="form-group row">
+											<input type="text" name="t3_<?php echo chr(65+$d).$row++; ?>" value="<?php echo $depo[$d-1];?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								<?php } ?>
+								
+								<!-- kolom terakhir -->
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<?php $row = 1; ?>
+											<input type="text" name="t3_<?php echo chr(65+$d).$row++; ?>" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php for ($t = 1; $t <= $jumlahTipe; $t++) { ?>
+										<div class="form-group row">
+											<input type="text" name="t3_<?php echo chr(65+$d).$row++; ?>" value="<?php echo $tipe[$t-1];?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php } ?>
+										<div class="form-group row">
+											<input type="text" name="t3_<?php echo chr(65+$d).$row++; ?>" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								
+							<?php } ?>
+							<!-- end of tabel 3    -->
 							
 						</div>
 					</div>

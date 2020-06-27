@@ -274,7 +274,7 @@
 
           <div class="row">
 
-            <div class="col-lg-4">
+            <div class="col-sm-12">
 				<!-- Jumlah Titik Jaringan (Himpunan Jaringan) -->
 				<div class="card mb-3">
 					<div class="card-header">
@@ -282,7 +282,7 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-lg-8">
+							<div class="col-lg-2">
 								<div class="p-2">
 									<form action="input2.php" method="POST">
 										<div class="form-group row">Jumlah Pengimpor
