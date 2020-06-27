@@ -1,4 +1,18 @@
 <?php
+$jumlahPengimpor = "";
+$jumlahStorage   = "";
+$jumlahDepo      = "";
+$jumlahTipe      = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$jumlahPengimpor = $_POST["jumlahPengimpor"];
+	$jumlahStorage   = $_POST["jumlahStorage"];
+	$jumlahDepo      = $_POST["jumlahDepo"];
+	$jumlahTipe      = $_POST["jumlahTipe"];
+	$pengimpor       = $_POST["pengimpor"];
+	$storage         = $_POST["storage"];
+	$depo            = $_POST["depo"];
+	$tipe            = $_POST["tipe"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -274,7 +288,7 @@
 
           <div class="row">
 
-            <div class="col-lg-4">
+            <div class="col-sm-12">
 				<!-- Jumlah Titik Jaringan (Himpunan Jaringan) -->
 				<div class="card mb-3">
 					<div class="card-header">
@@ -282,23 +296,285 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-lg-8">
+							<div class="col-lg-4">
 								<div class="p-2">
-									<form action="input2.php" method="POST">
-										<div class="form-group row">Jumlah Pengimpor
-											<input type="text" name="jumlahPengimpor" class="form-control form-control-user" id="jumlahPengimpor" placeholder="">
+									<form method="POST" action="input4.php">
+									<div class="form-group row">Jumlah Pengimpor
+										<input type="text" name="jumlahPengimpor" value="<?php echo $jumlahPengimpor; ?>" class="form-control form-control-user" id="jumlahPengimpor" placeholder="" readonly>
+									</div>
+									<div class="form-group row">Jumlah Storage
+										<input type="text" name="jumlahStorage" value="<?php echo $jumlahStorage; ?>" class="form-control form-control-user" id="jumlahStorage" placeholder="" readonly>
+									</div>
+									<div class="form-group row">Jumlah Depo
+										<input type="text" name="jumlahDepo" value="<?php echo $jumlahDepo; ?>" class="form-control form-control-user" id="jumlahDepo" placeholder="" readonly>
+									</div>
+									<div class="form-group row">Jumlah Tipe Tanker
+										<input type="text" name="jumlahTipe" value="<?php echo $jumlahTipe; ?>" class="form-control form-control-user" id="jumlahTipeTanker" placeholder="" readonly>
+									</div>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<?php if ($jumlahPengimpor > 0 or $jumlahStorage > 0 or $jumlahDepo > 0 or $jumlahTipe > 0) { ?>
+			
+			<div class="col-sm-12">
+				<div class="card mb-3">
+					<div class="card-body">
+					
+						<div class="row">
+							
+							<!-- pengimpor -->
+							<?php
+							if ($jumlahPengimpor > 0) {
+							?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+										Pengimpor
 										</div>
-										<div class="form-group row">Jumlah Storage
-											<input type="text" name="jumlahStorage" class="form-control form-control-user" id="jumlahStorage" placeholder="">
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="pengimpor[]" value="<?php echo $pengimpor[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
 										</div>
-										<div class="form-group row">Jumlah Depo
-											<input type="text" name="jumlahDepo" class="form-control form-control-user" id="jumlahDepo" placeholder="">
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of pengimpor -->
+							
+							<!-- storage -->
+							<?php
+							if ($jumlahStorage > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Storage
 										</div>
-										<div class="form-group row">Jumlah Tipe Tanker
-											<input type="text" name="jumlahTipe" class="form-control form-control-user" id="jumlahTipeTanker" placeholder="">
+										<?php
+										for ($i = 1; $i <= $jumlahStorage; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="storage[]" value="<?php echo $storage[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
 										</div>
-										<hr>
-										<input type="submit" class="btn btn-primary" type="submit" name="proses1" value="Proses">
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of storage -->
+							
+							<!-- depo -->
+							<?php
+							if ($jumlahDepo > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Depo
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahDepo; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="depo[]" value="<?php echo $depo[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of depo -->
+							
+							<!-- tipe tanker -->
+							<?php
+							if ($jumlahTipe > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Tipe Tanker
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahTipe; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="tipe[]" value="<?php echo $tipe[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of tipe tanker -->
+						
+						</div>
+					</div>
+				</div>
+            </div>
+			
+			<!-- proses ketiga -->
+			<div class="col-sm-12">
+				<div class="card mb-3">
+					<div class="card-body">
+					
+						<div class="row">
+							
+							<!-- pengimpor -->
+							<?php
+							if ($jumlahPengimpor > 0) {
+							?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+										&nbsp;
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<p>i<sub><?php echo $i; ?></sub></p><!-- <input type="text" name="labelpengimpor[]" value="i<?php echo $i; ?>" class="form-control form-control-user" size="2" readonly> -->
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+										d
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="pengimpor[]" value="<?php echo $pengimpor[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of pengimpor -->
+							
+							<!-- storage -->
+							<?php
+							if ($jumlahStorage > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Storage
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahStorage; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="storage[]" value="<?php echo $storage[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of storage -->
+							
+							<!-- depo -->
+							<?php
+							if ($jumlahDepo > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Depo
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahDepo; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="depo[]" value="<?php echo $depo[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of depo -->
+							
+							<!-- tipe tanker -->
+							<?php
+							if ($jumlahTipe > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Tipe Tanker
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahTipe; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="tipe[]" value="<?php echo $tipe[$i-1]; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of tipe tanker -->
+						
+						</div>
+					</div>
+				</div>
+            </div>
+			<!-- end of proses ketiga -->
+			
+			<div class="col-sm-12">
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="p-2">
+									<!-- <button class="btn btn-primary" type="submit" name="proses2">Proses</button> -->
+									<a href="#" class="btn btn-primary btn-icon-split" onClick="history.go(-1); return false;">
+										<span class="icon text-white-50">
+											<i class="fas fa-arrow-left"></i>
+										</span>
+										<span class="text">Back</span>
+									</a>
+									<input type="submit" class="btn btn-primary" type="submit" name="proses3" value="Proses">
 									</form>
 								</div>
 							</div>
@@ -306,6 +582,7 @@
 					</div>
 				</div>
 			</div>
+			<?php }?>
 			
           </div>
 
