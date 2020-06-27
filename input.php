@@ -286,115 +286,152 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           <div class="row">
 
-            <div class="col-lg-8">
-
-			  <!-- Jumlah Titik Jaringan (Himpunan Jaringan) -->
-              <div class="card mb-4">
-                <div class="card-header">
-                  Jumlah Titik Jaringan (Himpunan Jaringan)
-                </div>
-                <div class="card-body">
-                  <!-- This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example. -->
-					<div class="row">
-					  <div class="col-lg-12">
-						<div class="p-4">
-							<div class="form-group row">
-							  <input type="text" name="jumlahPengimpor" value="<?php echo $jumlahPengimpor; ?>" class="form-control form-control-user" id="jumlahPengimpor" placeholder="Jumlah Pengimpor">
-							</div>
-							<div class="form-group row">
-							  <input type="text" name="jumlahStorage" value="<?php echo $jumlahStorage; ?>" class="form-control form-control-user" id="jumlahStorage" placeholder="Jumlah Storage">
-							</div>
-							<div class="form-group row">
-							  <input type="text" name="jumlahDepo" value="<?php echo $jumlahDepo; ?>" class="form-control form-control-user" id="jumlahDepo" placeholder="Jumlah Depo">
-							</div>
-							<div class="form-group row">
-							  <input type="text" name="jumlahTipe" value="<?php echo $jumlahTipe; ?>" class="form-control form-control-user" id="jumlahTipeTanker" placeholder="Jumlah Tipe Tanker">
-							</div>
-						  <hr>
-						</div>
-					  </div>
+            <div class="col-lg-4">
+				<!-- Jumlah Titik Jaringan (Himpunan Jaringan) -->
+				<div class="card mb-3">
+					<div class="card-header">
+						Jumlah Titik Jaringan (Himpunan Jaringan)
 					</div>
-                </div>
-              </div>
-			  
-			  <!-- Daftar Konstanta / Parameter -->
-              <div class="card mb-4">
-                <div class="card-header">
-                  Daftar Konstanta / Parameter
-                </div>
-                <div class="card-body">
-                  <!-- This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example. -->
-					<div class="row">
-					  <div class="col-lg-12">
-						<div class="p-3">
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="hargaMinyakProduk" placeholder="Harga Minyak Produk (IDR /ton)">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="p-2">
+									<form action="" method="POST">
+										<div class="form-group row">
+											<input type="text" name="jumlahPengimpor" value="<?php echo $jumlahPengimpor; ?>" class="form-control form-control-user" id="jumlahPengimpor" placeholder="Jumlah Pengimpor">
+										</div>
+										<div class="form-group row">
+											<input type="text" name="jumlahStorage" value="<?php echo $jumlahStorage; ?>" class="form-control form-control-user" id="jumlahStorage" placeholder="Jumlah Storage">
+										</div>
+										<div class="form-group row">
+											<input type="text" name="jumlahDepo" value="<?php echo $jumlahDepo; ?>" class="form-control form-control-user" id="jumlahDepo" placeholder="Jumlah Depo">
+										</div>
+										<div class="form-group row">
+											<input type="text" name="jumlahTipe" value="<?php echo $jumlahTipe; ?>" class="form-control form-control-user" id="jumlahTipeTanker" placeholder="Jumlah Tipe Tanker">
+										</div>
+										<hr>
+										<button class="btn btn-primary" type="submit">Proses</button>
+									</form>
+								</div>
 							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="bungaPinjaman" placeholder="Bunga Pinjaman Harian Untuk Inventory (% /hari)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="durasiPenyimpanan" placeholder="Durasi Penyimpanan Inventory (hari)">
-							</div>
-						  <hr>
 						</div>
-					  </div>
 					</div>
-                </div>
-              </div>
-			  
-			  <!-- Proses -->
-              <div class="card mb-4">
-                <div class="card-body">
-                  <!-- This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example. -->
-					<div class="row">
-					  <div class="col-lg-12">
-						<div class="p-1">
-						  <button class="btn btn-primary" type="submit">Proses</button>
-						  </form>
+				</div>
+			</div>
+			
+			<div class="col-lg-12">
+				<div class="card mb-12">
+					<div class="card-body">
+						<div class="row">
+					  
+							<!-- pengimpor -->
+							<?php
+							if ($jumlahPengimpor > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Pengimpor
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="pengimpor[]" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of pengimpor -->
+							
+							<!-- storage -->
+							<?php
+							if ($jumlahStorage > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Storage
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahStorage; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="storage[]" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of storage -->
+							
+							<!-- depo -->
+							<?php
+							if ($jumlahDepo > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Depo
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahDepo; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="depo[]" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of depo -->
+							
+							<!-- tipe tanker -->
+							<?php
+							if ($jumlahTipe > 0) {
+							?>
+								<div class="col-sm-3">
+									<div class="p-2">
+										<div class="form-group row">
+										Tipe Tanker
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahTipe; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="tipe[]" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+							<!-- end of tipe tanker -->
+							
+							
+						
 						</div>
-					  </div>
-					</div>
-                </div>
-              </div>
-			  
-			  <!-- Daftar Variabel -->
-              <div class="card mb-4">
-                <div class="card-header">
-                  Daftar Variabel
-                </div>
-                <div class="card-body">
-                  <!-- This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example. -->
-					<div class="row">
-					  <div class="col-lg-12">
-						<div class="p-3">
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="hargaMinyakProduk" placeholder="Angkutan minyak per tahun dari pengimpor i menuju storage j (ton)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="bungaPinjaman" placeholder="Angkutan minyak per tahun dari storage j menuju depo k (ton)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="durasiPenyimpanan" placeholder="Biaya total tahunan Vendor (Jt. IDR)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="durasiPenyimpanan" placeholder="Biaya total tahunan Retailer (Jt. IDR)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="durasiPenyimpanan" placeholder="Kapasitas muat kapal tanker jenis l (ton)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="durasiPenyimpanan" placeholder="Biaya per unit angkutan minyak dari pengimpor i menuju storage j (IDR /ton)">
-							</div>
-							<div class="form-group row">
-							  <input type="text" class="form-control form-control-user" id="durasiPenyimpanan" placeholder="Biaya per unit angkutan minyak dari storage j menuju depo k (IDR /ton)">
-							</div>
-						  <hr>
+						<div class="row">
+							<button class="btn btn-primary" type="submit">Proses</button>
 						</div>
-					  </div>
 					</div>
-                </div>
-              </div>
+				</div>
 			  
             </div>
 
