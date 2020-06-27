@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Demo v1.0 - Input</title>
+  <title>Demo v1.0 - Projection</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -61,7 +61,7 @@
       <li class="nav-item">
         <a class="nav-link" href="input.php">
           <i class="fas fa-fw fa-table"></i>
-          <span>Input</span></a>
+          <span>Projection</span></a>
       </li>
 
       <!-- Divider -->

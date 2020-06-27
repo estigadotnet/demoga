@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Demo v1.0 - Input</title>
+  <title>Demo v1.0 - Projection</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <li class="nav-item">
         <a class="nav-link" href="input.php">
           <i class="fas fa-fw fa-table"></i>
-          <span>Input</span></a>
+          <span>Projection</span></a>
       </li>
 
       <!-- Divider -->
@@ -439,74 +439,82 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					
 						<div class="row">
 							
+							<!-- tabel 1           -->
 							<!-- baris = pengimpor -->
-							<?php
-							if ($jumlahPengimpor > 0) {
-							?>
+							<!-- kolom = depo      -->
+							<?php if ($jumlahPengimpor > 0) { ?>
+
+								<!-- kolom i1, i2, in -->
+								<!-- kolom pertama -->
 								<div class="col-sm-1">
 									<div class="p-2">
 										<div class="form-group row">
-											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+											<input type="text" name="t1_A1" value="" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
 										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
 										?>
 										<div class="form-group row">
-											<input type="text" name="labelpengimpor[]" value="i<?php echo $i; ?>" class="form-control form-control-user" size="2" readonly>
+											<input type="text" name="t1_A<?php echo $i+1; ?>" value="i<?php echo $i; ?>" class="form-control form-control-user" size="2" readonly>
 										</div>
 										<?php
 										}
 										?>
 										<div class="form-group row">
-											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
-										</div>
-									</div>
-								</div>
-								<?php for ($d = 1; $d <= $jumlahDepo; $d++) {?>
-								<div class="col-sm-1">
-									<div class="p-2">
-										<div class="form-group row">
-											<input type="text" name="headpengimpor[]" value="d<?php echo $d; ?>" class="form-control form-control-user" size="2" readonly>
-										</div>
-										<?php
-										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
-										?>
-										<div class="form-group row">
-											<input type="text" name="pengimpor[]" value="<?php echo $pengimpor[$i-1]." * ".$depo[$d-1]; ?>" class="form-control form-control-user" size="2">
-										</div>
-										<?php
-										}
-										?>
-										<div class="form-group row">
-											<input type="text" name="sigmapengimpor[]" value="" class="form-control form-control-user" size="2">
-										</div>
-									</div>
-								</div>
-								<?php }?>
-								<div class="col-sm-1">
-									<div class="p-2">
-										<div class="form-group row">
-											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
-										</div>
-										<?php
-										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
-										?>
-										<div class="form-group row">
-											<input type="text" name="labelpengimpor[]" value="" class="form-control form-control-user" size="2">
-										</div>
-										<?php
-										}
-										?>
-										<div class="form-group row">
-											<input type="text" name="headpengimpor[]" value="" class="form-control form-control-user" size="2" readonly>
+											<input type="text" name="t1_A<?php echo $i+1; ?>" value="" class="form-control form-control-user" size="2" readonly>
 										</div>
 									</div>
 								</div>
 								
-							<?php
-							}
-							?>
-							<!-- end of pengimpor -->
+								<!-- kolom d1, d2, dn -->
+								<!-- kolom kedua, kolom_n-1 -->
+								<?php for ($d = 1; $d <= $jumlahDepo; $d++) { ?>
+								<?php $row = 1; ?>
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<input type="text" name="t1_<?php echo chr(65+$d).$row++; ?>" value="d<?php echo $d; ?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="t1_<?php echo chr(65+$d).$row++; ?>" value="" class="form-control form-control-user" size="2">
+										</div>
+										<?php
+										}
+										?>
+										<div class="form-group row">
+											<input type="text" name="t1_<?php echo chr(65+$d).$row++; ?>" value="<?php echo $depo[$d-1];?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								<?php }?>
+								
+								<!-- kolom terakhir -->
+								<div class="col-sm-1">
+									<div class="p-2">
+										<div class="form-group row">
+											<?php $row = 1; ?>
+											<input type="text" name="t1_<?php echo chr(65+$d).$row++; ?>" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										for ($i = 1; $i <= $jumlahPengimpor; $i++) {
+										?>
+										<div class="form-group row">
+											<input type="text" name="t1_<?php echo chr(65+$d).$row++; ?>" value="<?php echo $pengimpor[$i-1];?>" class="form-control form-control-user" size="2" readonly>
+										</div>
+										<?php
+										}
+										?>
+										<div class="form-group row">
+											<input type="text" name="t1_<?php echo chr(65+$d).$row++; ?>" value="" class="form-control form-control-user" size="2" readonly>
+										</div>
+									</div>
+								</div>
+								
+							<?php } ?>
+							<!-- end of tabel 1    -->
 							
 						</div>
 					</div>
